@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM 投票</title>
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <h1>LLM 投票</h1>
+    </header>
+    <main>
+        <ul class="llm-list">
+            {% for llm in llms %}
+            <li class="llm-item" data-llm-id="{{ llm._id }}">
+                <div class="llm-info">
+                    <div class="llm-icon">
+                        <i class="{{ llm.icon }}"></i>
+                    </div>
+                    <div class="llm-details">
+                        <h2 class="llm-name">{{ llm.name }}</h2>
+                        <p class="llm-vendor">{{ llm.vendor }}</p>
+                        <div class="llm-tags">
+                            {% for tag in llm.tags %}
+                            <span class="llm-tag">{{ tag }}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="llm-desc">
+                    <p>{{ llm.intro }}</p>
+                </div>
+                <div class="llm-action">
+                    <a href="{{ llm.url }}" class="btn btn-primary" target="_blank">了解详情</a>
+                    <div class="vote-count">
+                        <span class="count">{{ llm.vote_count }}</span>
+                        <span class="icon"><i class="fas fa-heart"></i></span>
+                    </div>
+                    <div class="vote-btn">
+                        <span class="icon voted hide"><i class="fas fa-heart"></i></span>
+                        <span class="icon vote hide"><i class="far fa-heart"></i></span>
+                    </div>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </main>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="/static/script.js"></script>
+</body>
+</html>

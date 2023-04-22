@@ -1,0 +1,121 @@
+.vote-list {
+
+}
+
+.vote-item {
+  margin-bottom: 8px;
+  width: 90vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.product-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.icon {
+  font-size: 28px;
+  margin-right: 12px;
+}
+.name {
+  font-size: 18px;
+  font-weight: bold;
+  margin-right: 5px;
+  margin-left: 6px;
+}
+.vendor {
+  font-size: 10px;
+  color: #999;
+  margin-right: 5px;
+  position: relative;
+  margin-bottom: 12px;
+}
+.corner {
+  position: absolute;
+  bottom: -6px;
+  left: 8px;
+  background-color: #289eff;
+  color: #fff;
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+.time {
+  font-size: 14px;
+  color: #999;
+}
+
+.product-desc {
+  display: flex;
+  align-items: center;
+}
+.intro {
+  flex: 1;
+  font-size: 14px;
+  color: #666;
+  margin-right: 10px;
+}
+
+.product-tags {
+  display: flex;
+  align-items: center;
+  margin-top: 6px;
+  justify-content: space-between;
+}
+.tags {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+/* 投票数，在整个卡片居中右侧 */
+.vote-count {
+  height: 100%;
+  text-align: end;
+  font-size: 24px;
+  font-weight: bold;
+  margin-right: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.vote-btn {
+  font-size: 18px;
+  color: #999;
+  cursor: pointer;
+}
+
+
+/* 剩余投票次数 */
+.remain-votes {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* 投票说明 */
+.vote-desc {
+  text-align: center;
+  margin-top: 8px;
+  font-size: 10px;
+  color: #999;
+}
+
+/* 语言切换按钮 */
+.lang-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 10px;
+  font-size: 18px;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.lang-toggle:hover {
+  transform: scale(1.1);
+}
