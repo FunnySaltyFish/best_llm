@@ -1,8 +1,8 @@
-
+const MAX_VOTE_NUM = 3;
 const messages = {
   zh: {
     title: 'LLM最好评选',
-    voteDesc: '每人可投3票，请秉持公平公正的原则进行',
+    voteDesc: `每人可投 ${MAX_VOTE_NUM} 票，请秉持公平公正的原则进行`,
     remain: '剩余投票次数：',
     voteFailed: '投票失败',
     voteLimit: '投票次数已用完',
@@ -12,7 +12,7 @@ const messages = {
   },
   en: {
     title: 'BEST LLM Vote',
-    voteDesc: 'You can vote 3 times. Please vote fairly.',
+    voteDesc: `You can vote ${MAX_VOTE_NUM} times. Please vote fairly.`,
     remain: 'Remain Votes: ',
     voteFailed: 'Vote Failed',
     voteLimit: 'Vote Limit',
@@ -21,6 +21,8 @@ const messages = {
     revokeVoteSuccess: 'Revoke Vote Success',
   },
 };
+
+
 
 const i18n = VueI18n.createI18n({
   locale: 'zh', // set locale
@@ -35,7 +37,7 @@ const app = Vue.createApp({
   data() {
     return {
       lang: "zh", // 当前页面语言
-      voteNum: 3, // 用户还剩余的投票次数
+      voteNum: MAX_VOTE_NUM, // 用户还剩余的投票次数
       items: [], // 投票项列表
       pageNum: 0, // 当前页码,
       loadFinished: false, // 是否加载完毕,
@@ -116,10 +118,11 @@ const app = Vue.createApp({
   methods: {
     loadNewPage() {
       if (this.loadFinished) return;
-      if (!this.uid) return;
+      // console.log("load new page, uid = " + this.uid);
+      if (!this.uid || this.uid == '') return;
 
       // 加载新的一页
-      API.getLLMList(this.pageNum, 10).then((res) => {
+      API.getLLMList(this.pageNum, 10, this.uid).then((res) => {
         // 添加到items
         this.items.push(...res);
         if (res.length < 10) {
@@ -130,7 +133,7 @@ const app = Vue.createApp({
       this.pageNum += 1;
     },
     revokeVote: async function (item) {
-      if (this.voteNum === 3) return;
+      if (this.voteNum === MAX_VOTE_NUM) return;
       try {
         await API.revokeVote(item.id)
         item.voted = false;
@@ -139,7 +142,7 @@ const app = Vue.createApp({
       } catch (err) {
         this.$message({
           showClose: true,
-          message: this.$t('revokeVoteFailed') + "! " + err.message,
+          message: this.$t('revokeVoteFailed') + "! " + err,
           type: 'error',
         })
       }
@@ -161,7 +164,7 @@ const app = Vue.createApp({
       } catch (err) {
         this.$message({
           showClose: true,
-          message: this.$t('voteFailed') + "! " + err.message,
+          message: this.$t('voteFailed') + "! " + err,
           type: 'error',
         })
       }
@@ -176,17 +179,16 @@ const app = Vue.createApp({
       const visitorId = await import('https://openfpcdn.io/fingerprintjs/v3')
         .then(FingerprintJS => FingerprintJS.load())
         .then(fp => fp.get())
-      // .then(result => result.visitorId) // This is the visitor identifier:
-      console.log(visitorId)
-      this.uid = visitorId;
+        .then(result => result.visitorId) // This is the visitor identifier:
+      console.log("visitorId", visitorId);
+      uid = visitorId;
+      localStorage.setItem('uid', visitorId);
     }
+    this.uid = uid;
 
-    API.getUserVoteNum().then((res) => {
-      this.voteNum = res;
-    }).catch((err) => {
-      console.log(err);
-    })
-
+    const voteNum = (await API.getUserVoteNum());
+    this.voteNum = voteNum;
+    console.log('voteNum', this.voteNum);
     this.loadNewPage();
   },
 });

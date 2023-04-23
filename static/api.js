@@ -1,108 +1,61 @@
 // 项目的 API
-const http = {
-    async get(url, data = {}, config = {}) {
-        const res = await this.request(url, 'GET', data, config);
-        return res;
+const http = axios.create({
+    baseURL: '/api',
+    timeout: 10000,
+    headers: {
+        
     },
+});
 
-    async post(url, data = {}, config = {
-        data: "form"
-    }) {
-        const headers = { 'Content-Type': 'application/json' };
-        let body = JSON.stringify(data);
-
-        if (config.data === 'form') {
-            headers['Content-Type'] = 'application/x-www-form-urlencoded';
-            body = Object.keys(data)
-                .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
-                .join('&');
-        }
-
-        const res = await this.request(url, 'POST', body, {
-            ...config,
-            headers: { ...headers, ...config.headers },
-        });
-
-        return res;
-    },
-
-    async request(url, method, data = {}, config = {}) {
-        const headers = {
-            'Content-Type': 'application/json',
-            ...(config.headers || {}),
-        };
-
+http.interceptors.request.use(
+    config => {
         const uid = localStorage.getItem('uid');
         if (uid) {
-            headers['uid'] = uid;
+            config.headers['uid'] = uid;
         }
-
-        const options = {
-            method,
-            headers,
-            body: data,
-            ...config,
-        };
-
-        const res = await window.fetch(url, options);
-
-        if (!res.ok) {
-            throw new Error(await res.text() || '请求失败');
-        }
-
-        return res;
+        return config;
     },
-};
+    err => {
+        return Promise.reject(err);
+    }
+);
 
+http.interceptors.response.use(
+    response => {
+        return response;
+    },
+    error => {
+        console.log("request with url " + error.config.url + " failed, status code = " + error.response.status, "error = ", error)
+        return Promise.reject(
+            error.response.data.detail || error.message || '请求失败',
+        );
+    }
+);
 
 
 const API = {
     // 获取分页的LLM列表
-    getLLMList: (page, size) => {
-        const request = fetch(`/api/llms?page=${page}&size=${size}`);
-        return request.then((res) => res.json()
-            .catch((err) => {
-                console.error(err);
-                return {};
-            }));
+    getLLMList: (page, size, uid) => {
+        const request = http.get(`/llms?page=${page}&size=${size}&uid=${uid}`);
+        return request.then((res) => {
+            return res.data;
+        })
     },
     vote: (id) => {
-        const request = http.post(`/api/llms/${id}/vote`)
-
+        const request = http.post(`/llms/${id}/vote`)
         // 状态码为 200 时，不返回
         // 反之抛出错误
-        return request.then((res) => {
-            if (res.status === 200) {
-                return {};
-            } else {
-                // 获取到 text 并加上状态码返回
-                return res.text().then((text) => {
-                    const err = new Error(text + ` (status code: ${res.status})`);
-                    throw err;
-                });
-            }
-        })
+        return request
     },
     revokeVote: (id) => {
-        const request = http.post(`/api/llms/${id}/revoke_vote`)
+        const request = http.post(`/llms/${id}/revoke_vote`)
         // 状态码为 200 时，不返回
         // 反之抛出错误
-        return request.then((res) => {
-            if (res.status === 200) {
-                return {};
-            } else {
-                // 获取到 text 并加上状态码返回
-                return res.text().then((text) => {
-                    const err = new Error(text + ` (status code: ${res.status})`);
-                    throw err;
-                });
-            }
-        })
+        return request
     },
-    getUserVoteNum: async (uid) => {
-        const request = http.post(`/api/users/vote_num?uid=${uid}`);
-        const res = await request;
-        const text = await res.text();
+    getUserVoteNum: async () => {
+        const request = http.post(`/users/vote_num`);
+        const text = (await request).data;
         console.log(text);
         return Number.parseInt(text);
     }
