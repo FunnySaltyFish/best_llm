@@ -1,16 +1,15 @@
 
-from fastapi import FastAPI, HTTPException, Request, Header, Depends, Form
-from fastapi.staticfiles import StaticFiles
-from fastapi.responses import HTMLResponse
-from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
-from config import *
+from fastapi import Depends, FastAPI, Form, Header, HTTPException, Request
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import HTMLResponse
+from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-from mongo_db import appDB
-from bean.llm import LLM
-from typing import Callable, Optional
-from datetime import datetime
 
+from bean.llm import LLM
+from bean.contributor import Contributor
+from config import *
+from mongo_db import appDB
 from utils.user_utils import find_or_create_user
 
 DEFAULT_VOTE_NUM = 3
@@ -42,8 +41,12 @@ def get_client_ip(request: Request) -> str:
 
 @app.get("/", response_class=HTMLResponse)
 async def read_root(request: Request):
-    return templates.TemplateResponse("index2.html", {"request": request})
+    return templates.TemplateResponse("index.html", {"request": request})
+    
 
+@app.get("/api/contributors")
+async def get_contributors() -> list[Contributor]:
+    return appDB.query_all(appDB.col_contributors)
 
 @app.post("/api/users/vote_num")
 async def get_vote_num(uid: str = Header("")):
@@ -66,7 +69,6 @@ async def get_llm_list(
     llms = appDB.query_paged(appDB.col_llms, page, size, sort)
     for llm in llms:
         # 通过 user.voted_llms 判断当前用户是否已经投过票
-        print("user", user)
         llm['voted'] = llm["id"] in user.get('voted_llms', [])
     return llms
 
@@ -98,4 +100,4 @@ async def revoke_vote(llm_id: int, client_ip: str = Depends(get_client_ip), uid:
 
 if __name__ == '__main__':
     uvicorn.run('best_llm:app', host='127.0.0.1', port=8000, reload=True,
-                reload_excludes=[".history/", "static/", "templates/"])
+                reload_excludes=[".history/**", "static/", "templates/"])

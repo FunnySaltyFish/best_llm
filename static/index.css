@@ -1,7 +1,56 @@
-.vote-list {
-
+:root {
+  --header-height: 60px;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.el-header {
+  --el-header-padding: 0 0;
+  position: relative;
+  width: 100%;
+  height: var(--header-height);     
+}
+
+.el-header .title {
+  font-size: large;
+  font-weight: bold;
+}
+
+.footer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color:#999;
+  font-size: 8px;
+  padding-bottom: 8px;
+}
+
+.footer .el-link {
+  margin-right: 8px;
+}
+
+/* 主页面 Header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 20px;
+  height: 60px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  flex-direction: row;
+}
+
+.header .lang-switch {
+  margin-left: auto;
+}
+
+
+/* 投票部分-主体 */
 .vote-item {
   margin-bottom: 8px;
   width: 90vw;
@@ -89,7 +138,6 @@
 /* 剩余投票次数 */
 .remain-votes {
   text-align: center;
-  margin-top: 20px;
   font-size: 18px;
   font-weight: bold;
 }

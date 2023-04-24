@@ -8,6 +8,7 @@ class DB():
         self.db = self.client["db_best_llm"]
         self.col_llms = self.db["llms"]
         self.col_users = self.db["users"]
+        self.col_contributors = self.db["contributors"]
 
 
     def query_lasted(self, col: Collection, default={}):

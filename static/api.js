@@ -58,6 +58,10 @@ const API = {
         const text = (await request).data;
         console.log(text);
         return Number.parseInt(text);
+    },
+    getContributors: async () => {
+        const request = http.get(`/contributors`);
+        return (await request).data;
     }
 };
 

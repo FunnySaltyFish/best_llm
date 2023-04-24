@@ -1,9 +1,9 @@
 const MAX_VOTE_NUM = 3;
 const messages = {
   zh: {
-    title: 'LLM最好评选',
-    voteDesc: `每人可投 ${MAX_VOTE_NUM} 票，请秉持公平公正的原则进行`,
-    remain: '剩余投票次数：',
+    title: 'BEST LLM',
+    voteDesc: `每人最高可投 ${MAX_VOTE_NUM} 票，请秉持公平公正的原则进行`,
+    remain: '余票：',
     voteFailed: '投票失败',
     voteLimit: '投票次数已用完',
     revokeVoteFailed: '撤销投票失败',
@@ -11,9 +11,9 @@ const messages = {
     revokeVoteSuccess: '撤销投票成功',
   },
   en: {
-    title: 'BEST LLM Vote',
-    voteDesc: `You can vote ${MAX_VOTE_NUM} times. Please vote fairly.`,
-    remain: 'Remain Votes: ',
+    title: 'BEST LLM',
+    voteDesc: `You can vote ${MAX_VOTE_NUM} times at most. Please vote fairly.`,
+    remain: 'Votes Left: ',
     voteFailed: 'Vote Failed',
     voteLimit: 'Vote Limit',
     revokeVoteFailed: 'Revoke Vote Failed',
@@ -22,10 +22,10 @@ const messages = {
   },
 };
 
-
+const KEY_LANG = 'KEY_LANG';
 
 const i18n = VueI18n.createI18n({
-  locale: 'zh', // set locale
+  locale: localStorage.getItem(KEY_LANG) || "zh", // set locale
   fallbackLocale: 'zh', // set fallback locale
   messages, // set locale messages
   // If you need to specify other options, you can set other options
@@ -36,12 +36,15 @@ const app = Vue.createApp({
   i18n,
   data() {
     return {
-      lang: "zh", // 当前页面语言
+      lang: localStorage.getItem(KEY_LANG) || "zh", // 当前页面语言
       voteNum: MAX_VOTE_NUM, // 用户还剩余的投票次数
       items: [], // 投票项列表
       pageNum: 0, // 当前页码,
       loadFinished: false, // 是否加载完毕,
       uid: "", // 用户id
+      contributors: [
+        {"name": "Yuan", "link": "http://www.baidu.com" }
+      ], // 贡献者列表，{"name":"", "link":""}
     };
   },
   computed: {},
@@ -84,9 +87,6 @@ const app = Vue.createApp({
 
       `,
       methods: {
-        toggleLang() {
-          this.lang = this.lang === "zh" ? "en" : "zh";
-        },
         async toggleVote(item) {
           if (item.voted) {
             this.$emit("revokeVote", item);
@@ -101,21 +101,52 @@ const app = Vue.createApp({
   },
   template: `
     <el-container>
-        <el-header>Header</el-header>
-        <el-main>
-            <!-- 投票项列表 -->
-            <div class="vote-list" v-infinite-scroll="loadNewPage">
-                <vote-item v-for="item in items" :key="item.id" :item="item" :voteNum="voteNum" @vote="vote" @revokeVote="revokeVote" />
+        <el-affix>
+          <el-header>
+            <div class="header">
+              <div class="title">{{$t('title')}}</div>
+              <!-- 分割线 -->
+              <el-divider direction="vertical" />
+              <!-- 用户剩余投票次数 -->
+              <el-tooltip
+                class="box-item"
+                effect="dark"
+                :content="$t('voteDesc')"
+                placement="bottom"
+              >
+                <div class="remain-votes">{{$t('remain')}} {{voteNum}}</div>
+              </el-tooltip>
+              <div class="lang-switch">
+                <el-select v-model="lang" placeholder="请选择" @change="toggleLang" style="width: 96px">
+                  <el-option label="中文" value="zh"></el-option>
+                  <el-option label="English" value="en"></el-option>
+                </el-select>
+              </div>  
             </div>
-            <!-- 用户剩余投票次数 -->
-            <div class="remain-votes">{{$t('remain')}} {{voteNum}}</div>
-            <!-- 投票说明 -->
-            <div class="vote-desc">{{$t('voteDesc')}}</div>
+          </el-header>
+        </el-affix>
+        <el-main>
+          <!-- 投票项列表 -->
+          <div class="vote-list" v-infinite-scroll="loadNewPage">
+              <vote-item v-for="item in items" :key="item.id" :item="item" :voteNum="voteNum" @vote="vote" @revokeVote="revokeVote" />
+          </div>
         </el-main>
-        <el-footer>Footer</el-footer>
+        <el-footer>
+          <div class="footer">
+            <div class="footer-desc">Made with the help of ChatGPT and Github Copilot</div>
+            <p>Contributors:</p>
+            <div class="contributors">
+              <el-link v-for="item in contributors" :href="item.link" target="_blank"> {{item.name}} </el-link>
+            </div>
+          </div>
+        </el-footer>
     </el-container>
     `,
   methods: {
+    toggleLang() {
+      this.$i18n.locale = this.lang;
+      localStorage.setItem(KEY_LANG, this.lang);
+    },
     loadNewPage() {
       if (this.loadFinished) return;
       // console.log("load new page, uid = " + this.uid);
@@ -173,6 +204,8 @@ const app = Vue.createApp({
   },
   async mounted() {
     console.log('mounted');
+    this.contributors = await API.getContributors();
+
     let uid = localStorage.getItem('uid');
     if (!uid) {
       // Initialize the agent at application startup.
