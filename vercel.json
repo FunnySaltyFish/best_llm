@@ -1,9 +1,8 @@
 {
-    "version": 2,
     "builds": [
-        { "src": "best_llm.py", "use": "@now/python" }
+      {"src": "/best_llm.py", "use": "@vercel/python"}
     ],
     "routes": [
-        { "src": "/(.*)", "dest": "best_llm.py" }
+      {"src": "/(.*)", "dest": "/best_llm.py"}
     ]
-}
+  }
