@@ -54,28 +54,24 @@ const app = Vue.createApp({
       // 向上传递的事件：onVoteSuccess, onRevokeVoteSuccess
       emits: ["vote", "revokeVote", "onVoteSuccess", "onRevokeVoteSuccess"],
       template: `
-        <el-card :body-style="{ padding: '12px' }" class="vote-item">
+      <el-card :body-style="{ padding: '12px' }" class="vote-item">
         <!-- 产品名称及开发公司 -->
-        <el-container>
-            <el-main style="--el-main-padding: 4px">
-            <div class="product-info">
-                <el-avatar shape="circle" :size="24" :src="item.icon" fit="cover" />
-                <div class="name">{{item.name}}</div>
-                <div class="vendor">
-                {{item.vendor}}<span class="corner">{{item.corner}}</span>
-                </div>
-                <div class="time">{{item.publish_time}}</div>
+
+        <div class="product-info">
+            <el-avatar shape="circle" :size="24" :src="item.icon" fit="cover" />
+            <div class="name">{{item.name}}</div>
+            <div class="vendor">
+            {{item.vendor}}<span class="corner">{{item.corner}}</span>
             </div>
-            <!-- 产品简介 -->
-            <div class="product-desc">
-                <div class="intro">{{item.intro}}</div>
-            </div>
-            </el-main>
-            <el-aside width="200px">
-            <!-- 投票数，在整个卡片居中右侧 -->
-            <div class="vote-count">{{item.vote_count}}</div>
-            </el-aside>
-        </el-container>
+            <div class="time">{{item.publish_time}}</div>
+        </div>
+        <!-- 产品简介 -->
+        <div class="product-desc">
+          <div class="intro">{{item.intro}}</div>
+          <!-- 投票数，在整个卡片居中右侧 -->
+          <div class="vote-count">{{item.vote_count}}</div>
+        </div>
+        
         <!-- 标签及投票信息 -->
         <div class="product-tags">
             <div class="tags">
@@ -83,7 +79,7 @@ const app = Vue.createApp({
             </div>
             <el-button type="primary" :icon="item.voted ? 'StarFilled' : 'Star'" @click="toggleVote(item)" circle></el-button>
         </div>
-        </el-card>
+      </el-card>
 
       `,
       methods: {
@@ -125,9 +121,9 @@ const app = Vue.createApp({
             </div>
           </el-header>
         </el-affix>
-        <el-main>
+        <el-main style="height: 100%;">
           <!-- 投票项列表 -->
-          <div class="vote-list" v-infinite-scroll="loadNewPage">
+          <div class="vote-list" v-infinite-scroll="loadNewPage" infinite-scroll-immediate="false">
               <vote-item v-for="item in items" :key="item.id" :item="item" :voteNum="voteNum" @vote="vote" @revokeVote="revokeVote" />
           </div>
         </el-main>

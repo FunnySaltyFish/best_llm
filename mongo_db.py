@@ -77,6 +77,8 @@ if __name__ == "__main__":
         print("Pinged your deployment. You successfully connected to MongoDB!")
         arr = json.load(open("llms.json", "r", encoding="utf-8"))
         for each in arr:
+            if each.get("publish_time"):
+                each["publish_time"] = datetime.datetime.strptime(each["publish_time"], "%Y-%m-%dT%H:%M:%SZ")
             appDB.col_llms.update_one({'id': each["id"]}, {"$set": each}, upsert=True)
         print("finish insert all")
     except Exception as e:

@@ -11,6 +11,7 @@ from bean.contributor import Contributor
 from config import *
 from mongo_db import appDB
 from utils.user_utils import find_or_create_user
+import datetime
 
 DEFAULT_VOTE_NUM = 3
 
@@ -70,6 +71,8 @@ async def get_llm_list(
     for llm in llms:
         # 通过 user.voted_llms 判断当前用户是否已经投过票
         llm['voted'] = llm["id"] in user.get('voted_llms', [])
+        # 显示 年-月-日
+        t: datetime.datetime = llm.get("publish_time")
     return llms
 
 
