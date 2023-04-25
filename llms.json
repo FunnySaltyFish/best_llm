@@ -4,14 +4,16 @@
     "name": "LLaMA",
     "vendor": "Meta",
     "intro": "LLaMA-13B outperforms GPT-3(175B) and LLaMA-65B is competitive to PaLM-540M.<br />Base model for most follow-up works.",
-    "region": "",
-    "tags": [],
+    "region": "US",
+    "tags": [
+      "Python",
+      "OpenSource",
+      "1B",
+      "10B"
+    ],
     "url": "https://github.com/facebookresearch/llama",
     "icon": "",
-    "publish_date": "2023-04-23",
-    "voters": [],
-    "vote_count": 0,
-    "voted": false
+    "publish_date": "2023-02-14T09:29:12Z"
   },
   {
     "id": 2,
@@ -19,13 +21,15 @@
     "vendor": "@ggerganov",
     "intro": "c/cpp implementation for llama and some other models, using quantization.",
     "region": "",
-    "tags": [],
+    "tags": [
+      "C/C++",
+      "OpenSource",
+      "1B",
+      "10B"
+    ],
     "url": "https://github.com/ggerganov/llama.cpp",
     "icon": "",
-    "publish_date": "2023-04-23",
-    "voters": [],
-    "vote_count": 0,
-    "voted": false
+    "publish_date": "2023-03-10T18:58:00Z"
   },
   {
     "id": 3,
@@ -36,10 +40,7 @@
     "tags": [],
     "url": "https://github.com/tatsu-lab/stanford_alpaca",
     "icon": "",
-    "publish_date": "2023-04-23",
-    "voters": [],
-    "vote_count": 0,
-    "voted": false
+    "publish_date": "2023-03-10T23:33:09Z"
   },
   {
     "id": 4,
@@ -50,10 +51,7 @@
     "tags": [],
     "url": "https://github.com/LianjiaTech/BELLE",
     "icon": "",
-    "publish_date": "2023-04-23",
-    "voters": [],
-    "vote_count": 0,
-    "voted": false
+    "publish_date": "2023-03-17T09:44:11Z"
   },
   {
     "id": 5,
@@ -64,10 +62,7 @@
     "tags": [],
     "url": "https://github.com/THUDM/ChatGLM-6B",
     "icon": "",
-    "publish_date": "2023-04-23",
-    "voters": [],
-    "vote_count": 0,
-    "voted": false
+    "publish_date": "2023-03-13T12:00:18Z"
   },
   {
     "id": 6,
@@ -78,10 +73,7 @@
     "tags": [],
     "url": "https://github.com/databrickslabs/dolly",
     "icon": "",
-    "publish_date": "2023-04-23",
-    "voters": [],
-    "vote_count": 0,
-    "voted": false
+    "publish_date": "2023-03-24T16:15:53Z"
   },
   {
     "id": 7,
@@ -92,10 +84,7 @@
     "tags": [],
     "url": "https://github.com/tloen/alpaca-lora",
     "icon": "",
-    "publish_date": "2023-04-23",
-    "voters": [],
-    "vote_count": 0,
-    "voted": false
+    "publish_date": null
   },
   {
     "id": 8,
@@ -106,10 +95,7 @@
     "tags": [],
     "url": "https://github.com/hpcaitech/ColossalAI/blob/main/applications/Chat/README.md",
     "icon": "",
-    "publish_date": "2023-04-23",
-    "voters": [],
-    "vote_count": 0,
-    "voted": false
+    "publish_date": null
   },
   {
     "id": 9,
@@ -120,10 +106,7 @@
     "tags": [],
     "url": "https://github.com/ZrrSkywalker/LLaMA-Adapter",
     "icon": "",
-    "publish_date": "2023-04-23",
-    "voters": [],
-    "vote_count": 0,
-    "voted": false
+    "publish_date": null
   },
   {
     "id": 10,
@@ -134,10 +117,7 @@
     "tags": [],
     "url": "https://github.com/PhoebusSi/Alpaca-CoT",
     "icon": "",
-    "publish_date": "2023-04-23",
-    "voters": [],
-    "vote_count": 0,
-    "voted": false
+    "publish_date": null
   },
   {
     "id": 11,
@@ -148,10 +128,7 @@
     "tags": [],
     "url": "https://github.com/AetherCortex/Llama-X",
     "icon": "",
-    "publish_date": "2023-04-23",
-    "voters": [],
-    "vote_count": 0,
-    "voted": false
+    "publish_date": null
   },
   {
     "id": 12,
@@ -162,10 +139,7 @@
     "tags": [],
     "url": "https://github.com/togethercomputer/OpenChatKit",
     "icon": "",
-    "publish_date": "2023-04-23",
-    "voters": [],
-    "vote_count": 0,
-    "voted": false
+    "publish_date": null
   },
   {
     "id": 13,
@@ -176,10 +150,7 @@
     "tags": [],
     "url": "https://github.com/nomic-ai/gpt4all",
     "icon": "",
-    "publish_date": "2023-04-23",
-    "voters": [],
-    "vote_count": 0,
-    "voted": false
+    "publish_date": null
   },
   {
     "id": 14,
@@ -190,10 +161,7 @@
     "tags": [],
     "url": "https://github.com/ymcui/Chinese-LLaMA-Alpaca",
     "icon": "",
-    "publish_date": "2023-04-23",
-    "voters": [],
-    "vote_count": 0,
-    "voted": false
+    "publish_date": null
   },
   {
     "id": 15,
@@ -204,10 +172,7 @@
     "tags": [],
     "url": "https://github.com/lm-sys/FastChat",
     "icon": "",
-    "publish_date": "2023-04-23",
-    "voters": [],
-    "vote_count": 0,
-    "voted": false
+    "publish_date": null
   },
   {
     "id": 16,
@@ -218,10 +183,7 @@
     "tags": [],
     "url": "https://github.com/NouamaneTazi/bloomz.cpp",
     "icon": "",
-    "publish_date": "2023-04-23",
-    "voters": [],
-    "vote_count": 0,
-    "voted": false
+    "publish_date": null
   },
   {
     "id": 17,
@@ -232,10 +194,7 @@
     "tags": [],
     "url": "https://github.com/OptimalScale/LMFlow",
     "icon": "",
-    "publish_date": "2023-04-23",
-    "voters": [],
-    "vote_count": 0,
-    "voted": false
+    "publish_date": null
   },
   {
     "id": 18,
@@ -246,10 +205,7 @@
     "tags": [],
     "url": "https://huggingface.co/cerebras/Cerebras-GPT-13B",
     "icon": "",
-    "publish_date": "2023-04-23",
-    "voters": [],
-    "vote_count": 0,
-    "voted": false
+    "publish_date": null
   },
   {
     "id": 19,
@@ -260,10 +216,7 @@
     "tags": [],
     "url": "https://github.com/Kent0n-Li/ChatDoctor",
     "icon": "",
-    "publish_date": "2023-04-23",
-    "voters": [],
-    "vote_count": 0,
-    "voted": false
+    "publish_date": null
   },
   {
     "id": 20,
@@ -274,10 +227,7 @@
     "tags": [],
     "url": "https://github.com/LAION-AI/Open-Assistant",
     "icon": "",
-    "publish_date": "2023-04-23",
-    "voters": [],
-    "vote_count": 0,
-    "voted": false
+    "publish_date": null
   },
   {
     "id": 21,
@@ -288,10 +238,7 @@
     "tags": [],
     "url": "https://github.com/project-baize/baize",
     "icon": "",
-    "publish_date": "2023-04-23",
-    "voters": [],
-    "vote_count": 0,
-    "voted": false
+    "publish_date": null
   },
   {
     "id": 22,
@@ -302,10 +249,7 @@
     "tags": [],
     "url": "https://github.com/young-geng/EasyLM",
     "icon": "",
-    "publish_date": "2023-04-23",
-    "voters": [],
-    "vote_count": 0,
-    "voted": false
+    "publish_date": null
   },
   {
     "id": 23,
@@ -316,10 +260,7 @@
     "tags": [],
     "url": "https://github.com/imClumsyPanda/langchain-ChatGLM",
     "icon": "",
-    "publish_date": "2023-04-23",
-    "voters": [],
-    "vote_count": 0,
-    "voted": false
+    "publish_date": null
   },
   {
     "id": 24,
@@ -330,10 +271,7 @@
     "tags": [],
     "url": "https://github.com/yangjianxin1/Firefly",
     "icon": "",
-    "publish_date": "2023-04-23",
-    "voters": [],
-    "vote_count": 0,
-    "voted": false
+    "publish_date": null
   },
   {
     "id": 25,
@@ -344,10 +282,7 @@
     "tags": [],
     "url": "https://github.com/Instruction-Tuning-with-GPT-4/GPT-4-LLM",
     "icon": "",
-    "publish_date": "2023-04-23",
-    "voters": [],
-    "vote_count": 0,
-    "voted": false
+    "publish_date": null
   },
   {
     "id": 26,
@@ -358,10 +293,7 @@
     "tags": [],
     "url": "https://github.com/EleutherAI/pythia",
     "icon": "",
-    "publish_date": "2023-04-23",
-    "voters": [],
-    "vote_count": 0,
-    "voted": false
+    "publish_date": null
   },
   {
     "id": 27,
@@ -372,10 +304,7 @@
     "tags": [],
     "url": "https://huggingface.co/trl-lib/llama-7b-se-rl-peft",
     "icon": "",
-    "publish_date": "2023-04-23",
-    "voters": [],
-    "vote_count": 0,
-    "voted": false
+    "publish_date": null
   },
   {
     "id": 28,
@@ -386,10 +315,7 @@
     "tags": [],
     "url": "https://github.com/nebuly-ai/nebullvm/tree/main/apps/accelerate/chatllam",
     "icon": "",
-    "publish_date": "2023-04-23",
-    "voters": [],
-    "vote_count": 0,
-    "voted": false
+    "publish_date": null
   },
   {
     "id": 29,
@@ -400,10 +326,7 @@
     "tags": [],
     "url": "https://github.com/juncongmoo/chatllama",
     "icon": "",
-    "publish_date": "2023-04-23",
-    "voters": [],
-    "vote_count": 0,
-    "voted": false
+    "publish_date": null
   },
   {
     "id": 30,
@@ -414,10 +337,7 @@
     "tags": [],
     "url": "https://github.com/juncongmoo/minichatgpt",
     "icon": "",
-    "publish_date": "2023-04-23",
-    "voters": [],
-    "vote_count": 0,
-    "voted": false
+    "publish_date": null
   },
   {
     "id": 31,
@@ -428,10 +348,7 @@
     "tags": [],
     "url": "https://github.com/LC1332/Luotuo-Chinese-LLM",
     "icon": "",
-    "publish_date": "2023-04-23",
-    "voters": [],
-    "vote_count": 0,
-    "voted": false
+    "publish_date": null
   },
   {
     "id": 32,
@@ -442,10 +359,7 @@
     "tags": [],
     "url": "https://github.com/Facico/Chinese-Vicuna",
     "icon": "",
-    "publish_date": "2023-04-23",
-    "voters": [],
-    "vote_count": 0,
-    "voted": false
+    "publish_date": null
   },
   {
     "id": 33,
@@ -456,10 +370,7 @@
     "tags": [],
     "url": "https://github.com/yanqiangmiffy/InstructGLM",
     "icon": "",
-    "publish_date": "2023-04-23",
-    "voters": [],
-    "vote_count": 0,
-    "voted": false
+    "publish_date": null
   },
   {
     "id": 34,
@@ -470,10 +381,7 @@
     "tags": [],
     "url": "https://github.com/GanjinZero/RRHF",
     "icon": "",
-    "publish_date": "2023-04-23",
-    "voters": [],
-    "vote_count": 0,
-    "voted": false
+    "publish_date": null
   },
   {
     "id": 35,
@@ -484,10 +392,7 @@
     "tags": [],
     "url": "https://github.com/microsoft/DeepSpeed/tree/master/blogs/deepspeed-chat",
     "icon": "",
-    "publish_date": "2023-04-23",
-    "voters": [],
-    "vote_count": 0,
-    "voted": false
+    "publish_date": null
   },
   {
     "id": 36,
@@ -498,10 +403,7 @@
     "tags": [],
     "url": "https://github.com/WuJunde/alpaca-glassoff",
     "icon": "",
-    "publish_date": "2023-04-23",
-    "voters": [],
-    "vote_count": 0,
-    "voted": false
+    "publish_date": null
   },
   {
     "id": 37,
@@ -512,10 +414,7 @@
     "tags": [],
     "url": "https://github.com/cambridgeltl/visual-med-alpaca",
     "icon": "",
-    "publish_date": "2023-04-23",
-    "voters": [],
-    "vote_count": 0,
-    "voted": false
+    "publish_date": null
   },
   {
     "id": 38,
@@ -526,10 +425,7 @@
     "tags": [],
     "url": "https://huggingface.co/datasets/JosephusCheung/GuanacoDataset",
     "icon": "",
-    "publish_date": "2023-04-23",
-    "voters": [],
-    "vote_count": 0,
-    "voted": false
+    "publish_date": null
   },
   {
     "id": 39,
@@ -540,10 +436,7 @@
     "tags": [],
     "url": "https://github.com/lightaime/camel",
     "icon": "",
-    "publish_date": "2023-04-23",
-    "voters": [],
-    "vote_count": 0,
-    "voted": false
+    "publish_date": null
   },
   {
     "id": 40,
@@ -554,10 +447,7 @@
     "tags": [],
     "url": "https://github.com/BaihaiAI/IDPChat",
     "icon": "",
-    "publish_date": "2023-04-23",
-    "voters": [],
-    "vote_count": 0,
-    "voted": false
+    "publish_date": null
   },
   {
     "id": 41,
@@ -568,10 +458,7 @@
     "tags": [],
     "url": "https://github.com/BlinkDL/ChatRWKV",
     "icon": "",
-    "publish_date": "2023-04-23",
-    "voters": [],
-    "vote_count": 0,
-    "voted": false
+    "publish_date": null
   },
   {
     "id": 42,
@@ -582,10 +469,7 @@
     "tags": [],
     "url": "https://github.com/FreedomIntelligence/LLMZoo",
     "icon": "",
-    "publish_date": "2023-04-23",
-    "voters": [],
-    "vote_count": 0,
-    "voted": false
+    "publish_date": null
   },
   {
     "id": 43,
@@ -596,10 +480,7 @@
     "tags": [],
     "url": "https://github.com/Vision-CAIR/MiniGPT-4",
     "icon": "",
-    "publish_date": "2023-04-23",
-    "voters": [],
-    "vote_count": 0,
-    "voted": false
+    "publish_date": null
   },
   {
     "id": 44,
@@ -610,10 +491,7 @@
     "tags": [],
     "url": "https://github.com/SCIR-HI/Huatuo-Llama-Med-Chinese",
     "icon": "",
-    "publish_date": "2023-04-23",
-    "voters": [],
-    "vote_count": 0,
-    "voted": false
+    "publish_date": null
   },
   {
     "id": 45,
@@ -624,10 +502,7 @@
     "tags": [],
     "url": "https://github.com/haotian-liu/LLaVA",
     "icon": "",
-    "publish_date": "2023-04-23",
-    "voters": [],
-    "vote_count": 0,
-    "voted": false
+    "publish_date": null
   },
   {
     "id": 46,
@@ -638,10 +513,7 @@
     "tags": [],
     "url": "https://github.com/Stability-AI/StableLM",
     "icon": "",
-    "publish_date": "2023-04-23",
-    "voters": [],
-    "vote_count": 0,
-    "voted": false
+    "publish_date": null
   },
   {
     "id": 47,
@@ -652,10 +524,7 @@
     "tags": [],
     "url": "https://github.com/xionghonglin/DoctorGLM",
     "icon": "",
-    "publish_date": "2023-04-23",
-    "voters": [],
-    "vote_count": 0,
-    "voted": false
+    "publish_date": null
   },
   {
     "id": 48,
@@ -666,10 +535,7 @@
     "tags": [],
     "url": "https://github.com/togethercomputer/RedPajama-Data",
     "icon": "",
-    "publish_date": "2023-04-23",
-    "voters": [],
-    "vote_count": 0,
-    "voted": false
+    "publish_date": null
   },
   {
     "id": 49,
@@ -680,10 +546,7 @@
     "tags": [],
     "url": "https://github.com/OpenLMLab/MOSS",
     "icon": "",
-    "publish_date": "2023-04-23",
-    "voters": [],
-    "vote_count": 0,
-    "voted": false
+    "publish_date": null
   },
   {
     "id": 50,
@@ -694,10 +557,7 @@
     "tags": [],
     "url": "https://bbt.ssymmetry.com/",
     "icon": "",
-    "publish_date": "2023-04-23",
-    "voters": [],
-    "vote_count": 0,
-    "voted": false
+    "publish_date": null
   },
   {
     "id": 51,
@@ -708,9 +568,6 @@
     "tags": [],
     "url": "https://github.com/BioFM/OpenBioMed",
     "icon": "",
-    "publish_date": "2023-04-23",
-    "voters": [],
-    "vote_count": 0,
-    "voted": false
+    "publish_date": null
   }
 ]

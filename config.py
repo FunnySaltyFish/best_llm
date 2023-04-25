@@ -1,6 +1,7 @@
+from dotenv import load_dotenv, find_dotenv
+import os
+
+load_dotenv(find_dotenv(), override=True)
+
 # MongoDB 配置
-MONGO_USERNAME = 'your username'
-MONGO_PASSWORD = 'your password'
-MONGO_HOST = 'your mongodb host'
-MONGO_PORT = 27017
-MONGO_DATABASE = 'llm'
+MONGO_URI = os.getenv('MONGO_URI', f"mongodb://localhost:27017")

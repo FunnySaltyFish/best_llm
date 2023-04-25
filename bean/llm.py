@@ -22,8 +22,6 @@ class LLM(BaseModel):
     icon: str = ""
     # 发布日期，如果尚未发布，则为 None
     publish_date: Optional[date] = None
-    
-    voters: set[str] = set()
-    vote_count: int = 0
 
+    vote_count: int = 0
     voted: bool = False

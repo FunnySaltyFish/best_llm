@@ -1,10 +1,13 @@
 import pymongo
 from pymongo.collection import Collection
-
+from config import MONGO_URI
 
 class DB():
     def __init__(self) -> None:
-        self.client = pymongo.MongoClient('mongodb://localhost:27017/')
+        # uri = "mongodb+srv://funny:<password>@bestllm.fh2pqjw.mongodb.net/?retryWrites=true&w=majority"
+        uri = MONGO_URI
+        print("mongo uri: ", uri)
+        self.client = pymongo.MongoClient(uri)
         self.db = self.client["db_best_llm"]
         self.col_llms = self.db["llms"]
         self.col_users = self.db["users"]
@@ -59,14 +62,38 @@ if __name__ == "__main__":
     #     "url": "http://www.example.com/product1",
     #     "vote_count": 5
     # }
-    for i in range(10):
-        data = {
-            "id": i,
-            "name": f"产品{i}",
-            "vendor": f"公司{i}",
-            "intro": f"这是产品{i}的介绍",
-            "tags": [f"标签{i}", f"标签{i}"],
-            "url": f"http://www.example.com/product{i}",
-            "vote_count": i
-        }
-        appDB.col_llms.insert_one(data)
+    # import json
+    # arr = json.load(open("llms.json", "r", encoding="utf-8"))
+    # print(len(arr))
+    # appDB.col_llms.insert_many(arr)
+    # print("done")
+
+    from pymongo.server_api import ServerApi
+    from pymongo.mongo_client import MongoClient
+    import json
+
+    # uri = f"mongodb+srv://funny:{MONGO_PASSWORD}@{MONGO_HOST}/?retryWrites=true&w=majority"
+    # print("mongo uri: ", uri)
+    # # Create a new client and connect to the server
+    # client = MongoClient(uri, server_api=ServerApi('1'))
+    # Send a ping to confirm a successful connection
+    try:
+        appDB.client.admin.command('ping')
+        print("Pinged your deployment. You successfully connected to MongoDB!")
+        arr = json.load(open("llms.json", "r", encoding="utf-8"))
+        for each in arr:
+            appDB.col_llms.update_one({'id': each["id"]}, {"$set": each}, upsert=True)
+        print("finish insert all")
+    except Exception as e:
+        print(e)
+    # for i in range(10):
+    #     data = {
+    #         "id": i,
+    #         "name": f"产品{i}",
+    #         "vendor": f"公司{i}",
+    #         "intro": f"这是产品{i}的介绍",
+    #         "tags": [f"标签{i}", f"标签{i}"],
+    #         "url": f"http://www.example.com/product{i}",
+    #         "vote_count": i
+    #     }
+    #     appDB.col_llms.insert_one(data)

@@ -84,7 +84,7 @@ def parse_line_to_json(i: int, line: str):
     vendor = elements[1]
     name, url = PATTERN_LINK.findall(elements[2])[0]
     intro = elements[5]
-    llm = LLM(id=i, name=name,vendor=vendor,intro=intro,url=url,region="",publish_date=date.today())
+    llm = LLM(id=i, name=name,vendor=vendor,intro=intro,url=url,region="",publish_date=None)
     return llm.json()
 
 
@@ -104,5 +104,28 @@ def parse_line_to_json(i: int, line: str):
 # llms = []
 # for i, line in enumerate(text.splitlines()):
 #     if not line: continue
-#     llms.append(json.loads(parse_line_to_json(i, line)))
+#     obj = json.loads(parse_line_to_json(i, line))
+#     del obj["voted"]
+#     del obj["vote_count"]
+#     llms.append(obj)
 # json.dump(llms, open("llms.json", "w", encoding="utf-8"), ensure_ascii=False, indent=2)
+
+# def get_github_repo_create_time(github_url: str):
+#     import requests
+#     import json
+#     api_url = "https://api.github.com/repos/" + github_url.split("github.com/")[1]
+#     resp = requests.get(api_url)
+#     if resp.status_code != 200:
+#         return None
+#     data = json.loads(resp.text)
+#     return data["created_at"]
+
+# if __name__ == "__main__":
+#     import json
+#     llms = json.load(open("llms.json", encoding="utf-8"))
+#     for llm in llms:
+#         if llm["url"].startswith("https://github.com") and not llm["publish_date"]:
+#             print("get github repo push time for", llm["name"], llm["url"], "...")
+#             llm["publish_date"] = get_github_repo_create_time(llm["url"])
+#             print(llm["publish_date"])
+#     json.dump(llms, open("llms.json", "w", encoding="utf-8"), ensure_ascii=False, indent=2)
