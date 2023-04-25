@@ -71,12 +71,7 @@ if __name__ == "__main__":
     from pymongo.server_api import ServerApi
     from pymongo.mongo_client import MongoClient
     import json
-
-    # uri = f"mongodb+srv://funny:{MONGO_PASSWORD}@{MONGO_HOST}/?retryWrites=true&w=majority"
-    # print("mongo uri: ", uri)
-    # # Create a new client and connect to the server
-    # client = MongoClient(uri, server_api=ServerApi('1'))
-    # Send a ping to confirm a successful connection
+    import datetime
     try:
         appDB.client.admin.command('ping')
         print("Pinged your deployment. You successfully connected to MongoDB!")
@@ -86,14 +81,3 @@ if __name__ == "__main__":
         print("finish insert all")
     except Exception as e:
         print(e)
-    # for i in range(10):
-    #     data = {
-    #         "id": i,
-    #         "name": f"产品{i}",
-    #         "vendor": f"公司{i}",
-    #         "intro": f"这是产品{i}的介绍",
-    #         "tags": [f"标签{i}", f"标签{i}"],
-    #         "url": f"http://www.example.com/product{i}",
-    #         "vote_count": i
-    #     }
-    #     appDB.col_llms.insert_one(data)

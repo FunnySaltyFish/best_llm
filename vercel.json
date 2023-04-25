@@ -1,0 +1,9 @@
+{
+    "version": 2,
+    "builds": [
+        { "src": "best_llm.py", "use": "@now/python" }
+    ],
+    "routes": [
+        { "src": "/(.*)", "dest": "best_llm.py" }
+    ]
+}

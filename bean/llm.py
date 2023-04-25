@@ -1,6 +1,6 @@
 from typing import List, Optional
 from pydantic import BaseModel
-from datetime import date
+from datetime import datetime
 
 # 数据模型
 class LLM(BaseModel):
@@ -21,7 +21,7 @@ class LLM(BaseModel):
     # 图标的 url 或 base64 编码
     icon: str = ""
     # 发布日期，如果尚未发布，则为 None
-    publish_date: Optional[date] = None
+    publish_time: Optional[datetime] = None
 
     vote_count: int = 0
     voted: bool = False

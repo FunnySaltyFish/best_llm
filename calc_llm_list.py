@@ -52,25 +52,6 @@ text = """
 | Tsinghua AIR                               | [BioMedGPT-1.6B](https://github.com/BioFM/OpenBioMed)                                                                | en/zh                    | -                                          | a pre-trained multi-modal molecular foundation model with 1.6B parameters that associates 2D molecular graphs with texts.                                                                                                                                                                                                                                                  |
 """
 
-# class LLM(BaseModel):
-#     # 从 0 开始的自增 ID
-#     id: int
-#     # LLM 名称，如 ChatGPT
-#     name: str
-#     # 公司名称
-#     vendor: str
-#     # 简单的介绍，以中文。如：基于 GPT-3.5 的多语言模型
-#     intro: str
-#     # 所在厂商的国家或地区，如中国、美国、日本等
-#     region: str
-#     # 一些标签，如 Code、Multi-Language 等
-#     tags: List[str]
-#     # 官网地址
-#     url: str
-#     # 图标的 url 或 base64 编码
-#     icon: str = ""
-#     # 发布日期，如果尚未发布，则为 None
-#     publish_date: Optional[date] = None
 import re 
 from bean.llm  import LLM
 from datetime import date
@@ -84,7 +65,7 @@ def parse_line_to_json(i: int, line: str):
     vendor = elements[1]
     name, url = PATTERN_LINK.findall(elements[2])[0]
     intro = elements[5]
-    llm = LLM(id=i, name=name,vendor=vendor,intro=intro,url=url,region="",publish_date=None)
+    llm = LLM(id=i, name=name,vendor=vendor,intro=intro,url=url,region="",publish_time=None)
     return llm.json()
 
 
@@ -110,22 +91,21 @@ def parse_line_to_json(i: int, line: str):
 #     llms.append(obj)
 # json.dump(llms, open("llms.json", "w", encoding="utf-8"), ensure_ascii=False, indent=2)
 
-# def get_github_repo_create_time(github_url: str):
-#     import requests
-#     import json
-#     api_url = "https://api.github.com/repos/" + github_url.split("github.com/")[1]
-#     resp = requests.get(api_url)
-#     if resp.status_code != 200:
-#         return None
-#     data = json.loads(resp.text)
-#     return data["created_at"]
+def get_github_repo_create_time(github_url: str):
+    import requests
+    import json
+    api_url = "https://api.github.com/repos/" + github_url.split("github.com/")[1]
+    resp = requests.get(api_url)
+    if resp.status_code != 200:
+        return None
+    data = json.loads(resp.text)
+    return data["created_at"]
 
-# if __name__ == "__main__":
-#     import json
-#     llms = json.load(open("llms.json", encoding="utf-8"))
-#     for llm in llms:
-#         if llm["url"].startswith("https://github.com") and not llm["publish_date"]:
-#             print("get github repo push time for", llm["name"], llm["url"], "...")
-#             llm["publish_date"] = get_github_repo_create_time(llm["url"])
-#             print(llm["publish_date"])
-#     json.dump(llms, open("llms.json", "w", encoding="utf-8"), ensure_ascii=False, indent=2)
+if __name__ == "__main__":
+    import json
+    llms = json.load(open("llms.json", encoding="utf-8"))
+    for llm in llms:
+        if llm["url"].startswith("https://github.com"):
+            if "OpenSource" not in llm["tags"]:
+                llm["tags"].append("OpenSource")
+    json.dump(llms, open("llms.json", "w", encoding="utf-8"), ensure_ascii=False, indent=2)
