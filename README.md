@@ -1,23 +1,23 @@
-# BestLLM
+<h1 align="center">Best LLM</h1></br>
+<p align="center">|  <a href="README_CN.md">中文版</a> |</p>
+<p align="center">
+:fire: Vote your favorite LLMs, and see what's the "best" LLM people like. 
+</p>
 
-[![GitHub license](https://img.shields.io/github/license/funnysaltyfish/best_llm.svg)]()
+<p align="center">
+  <a href="https://llm.best/"><strong>llm.best</strong></a>
+</p>
+<p align="center">
+  <a href="https://opensource.org/licenses/Apache-2.0"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg"/></a>
+  <img alt="GitHub stars" src="https://img.shields.io/github/stars/funnysaltyfish/best_llm.svg?style=social&label=Star&maxAge=2592000"/>
+    <img alt="GitHub forks" src="https://img.shields.io/github/forks/funnysaltyfish/best_llm.svg?style=social&label=Fork&maxAge=2592000"/>
+    <img alt="GitHub watchers" src="https://img.shields.io/github/watchers/funnysaltyfish/best_llm.svg?style=social&label=Watch&maxAge=2592000"/>
+    <img alt="GitHub issues" src="https://img.shields.io/github/issues/funnysaltyfish/best_llm.svg"/>
+</p>
 
-[![GitHub stars](https://img.shields.io/github/stars/funnysaltyfish/best_llm.svg?style=social&label=Star&maxAge=2592000)]()
-
-[![GitHub forks](https://img.shields.io/github/forks/funnysaltyfish/best_llm.svg?style=social&label=Fork&maxAge=2592000)]()
-
-[![GitHub watchers](https://img.shields.io/github/watchers/funnysaltyfish/best_llm.svg?style=social&label=Watch&maxAge=2592000)]()
-
-[![GitHub issues](https://img.shields.io/github/issues/funnysaltyfish/best_llm.svg)]()
-
-
+<p align="center">
 <img src="logo.png" alt="logo" style="zoom: 25%;" />
-
-| [中文版](README_CN.md) |
-
-Vote your favorite LLMs, and see what's the "best" LLM people like.
-
-**Website:** [llm.best](https://llm.best)
+</p>
 
 
 ## Contribute

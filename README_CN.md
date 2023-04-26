@@ -1,19 +1,24 @@
-# BestLLM
-[![GitHub许可证](https://img.shields.io/github/license/funnysaltyfish/best_llm.svg)]()
+<h1 align="center">Best LLM</h1></br>
 
-[![GitHub星数](https://img.shields.io/github/stars/funnysaltyfish/best_llm.svg?style=social&label=Star&maxAge=2592000)]()
-
-[![GitHub分支数](https://img.shields.io/github/forks/funnysaltyfish/best_llm.svg?style=social&label=Fork&maxAge=2592000)]()
-
-[![GitHub观察数](https://img.shields.io/github/watchers/funnysaltyfish/best_llm.svg?style=social&label=Watch&maxAge=2592000)]()
-
-[![GitHub问题数](https://img.shields.io/github/issues/funnysaltyfish/best_llm.svg)]()
-
-<img src="logo.png" alt="logo" style="zoom: 25%;" />
-
+<p align="center">
+:fire: 
 投票选出你最喜欢的 LLM（大语言模型），并查看人们最喜欢的“最佳” LLM。
+</p>
 
-**网站地址：**[llm.best](https://llm.best/)
+<p align="center">
+  <a href="https://llm.best/"><strong>llm.best</strong></a>
+</p>
+<p align="center">
+  <a href="https://opensource.org/licenses/Apache-2.0"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg"/></a>
+  <img alt="GitHub stars" src="https://img.shields.io/github/stars/funnysaltyfish/best_llm.svg?style=social&label=Star&maxAge=2592000"/>
+    <img alt="GitHub forks" src="https://img.shields.io/github/forks/funnysaltyfish/best_llm.svg?style=social&label=Fork&maxAge=2592000"/>
+    <img alt="GitHub watchers" src="https://img.shields.io/github/watchers/funnysaltyfish/best_llm.svg?style=social&label=Watch&maxAge=2592000"/>
+    <img alt="GitHub issues" src="https://img.shields.io/github/issues/funnysaltyfish/best_llm.svg"/>
+</p>
+
+<p align="center">
+<img src="logo.png" alt="logo" style="zoom: 25%;" />
+</p>
 
 ## 贡献
 
