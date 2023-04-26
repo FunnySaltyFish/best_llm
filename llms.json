@@ -655,5 +655,82 @@
     "url": "https://github.com/BioFM/OpenBioMed",
     "icon": "",
     "publish_time": "2023-04-13T04:10:04Z"
+  }, {
+    "id": 52,
+    "name": "ChatGPT",
+    "vendor": "OpenAI",
+    "intro": "The most famous LLM model in the world.",
+    "region": "US",
+    "tags": [
+      "100B",
+      "Bussiness"
+    ],
+    "url": "https://chat.openai.com/",
+    "icon": "https://chat.openai.com/favicon-32x32.png",
+    "publish_time": "2022-11-30T00:00:00Z"
+  }, {
+    "id": 53,
+    "name": "GPT-4",
+    "vendor": "OpenAI",
+    "intro": "The most powerful LLM model till now in the world.",
+    "region": "US",
+    "tags": [
+      "Bussiness",
+      "Paid"
+    ],
+    "url": "https://openai.com/product/gpt-4",
+    "icon": "https://chat.openai.com/favicon-32x32.png",
+    "publish_time": "2023-03-15T00:00:00Z"
+  }, {
+    "id": 54,
+    "name": "文心一言",
+    "vendor": "百度",
+    "intro": "文心一言是百度全新一代知识增强大语言模型，文心大模型家族的新成员。它能够与人对话互动，回答问题，协助创作，高效便捷地帮助人们获取信息、知识和灵感。",
+    "region": "CN",
+    "tags": [
+      "Bussiness",
+      "Internal test"
+    ],
+    "url": "https://yiyan.baidu.com/welcome",
+    "icon": "https://img1.imgtp.com/2023/04/26/VWKykOLV.png",
+    "publish_time": "2023-03-16T08:00:00Z"
+  }, {
+    "id": 55,
+    "name": "通义千问",
+    "vendor": "阿里云",
+    "intro": "通义千问是由阿里巴巴集团旗下的云端运算服务的科技公司阿里云开发的聊天机器人，能够与人交互、回答问题及协作创作",
+    "region": "CN",
+    "tags": [
+      "Bussiness",
+      "Internal test"
+    ],
+    "url": "https://tongyi.aliyun.com",
+    "icon": "https://img.alicdn.com/imgextra/i4/O1CN01fbqryd1ZossCmdlga_!!6000000003242-54-tps-200-200.apng",
+    "publish_time": "2023-04-07T08:00:00Z"
+  }, {
+    "id": 56,
+    "name": "360 智脑",
+    "vendor": "360",
+    "intro": "360 智脑是基于360的大模型开发的人工智能产品矩阵，目前已落地360搜索场景并开放测试",
+    "region": "CN",
+    "tags": [
+      "Bussiness",
+      "Internal test"
+    ],
+    "url": "https://www.so.com/zt/invite.html#/",
+    "icon": "",
+    "publish_time": null
+  }, {
+    "id": 57,
+    "name": "天工",
+    "vendor": "昆仑万维",
+    "intro": "天工作为一款大型语言模型，拥有强大的自然语言处理和智能交互能力，能够实现智能问答、聊天互动、文本生成等多种应用场景，并且具有丰富的知识储备，涵盖科学、技术、文化、艺术、历史等领域。",
+    "region": "CN",
+    "tags": [
+      "Bussiness",
+      "Internal test"
+    ],
+    "url": "https://tiangong.kunlun.com/",
+    "icon": "https://img1.imgtp.com/2023/04/26/Cb5pHZUl.png"
   }
 ]

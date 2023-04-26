@@ -91,21 +91,21 @@ def parse_line_to_json(i: int, line: str):
 #     llms.append(obj)
 # json.dump(llms, open("llms.json", "w", encoding="utf-8"), ensure_ascii=False, indent=2)
 
-def get_github_repo_create_time(github_url: str):
-    import requests
-    import json
-    api_url = "https://api.github.com/repos/" + github_url.split("github.com/")[1]
-    resp = requests.get(api_url)
-    if resp.status_code != 200:
-        return None
-    data = json.loads(resp.text)
-    return data["created_at"]
+# def get_github_repo_create_time(github_url: str):
+#     import requests
+#     import json
+#     api_url = "https://api.github.com/repos/" + github_url.split("github.com/")[1]
+#     resp = requests.get(api_url)
+#     if resp.status_code != 200:
+#         return None
+#     data = json.loads(resp.text)
+#     return data["created_at"]
 
-if __name__ == "__main__":
-    import json
-    llms = json.load(open("llms.json", encoding="utf-8"))
-    for llm in llms:
-        if llm["url"].startswith("https://github.com"):
-            if "OpenSource" not in llm["tags"]:
-                llm["tags"].append("OpenSource")
-    json.dump(llms, open("llms.json", "w", encoding="utf-8"), ensure_ascii=False, indent=2)
+# if __name__ == "__main__":
+#     import json
+#     llms = json.load(open("llms.json", encoding="utf-8"))
+#     for llm in llms:
+#         if llm["url"].startswith("https://github.com"):
+#             if "OpenSource" not in llm["tags"]:
+#                 llm["tags"].append("OpenSource")
+#     json.dump(llms, open("llms.json", "w", encoding="utf-8"), ensure_ascii=False, indent=2)

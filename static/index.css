@@ -1,5 +1,6 @@
 :root {
   --header-height: 60px;
+  --footer-height: 60px;
 }
 
 body {
@@ -21,13 +22,15 @@ body {
 
 .footer {
   width: 100%;
+  height: var(--footer-height);
   display: flex;
   flex-direction: column;
   align-items: center;
   color:#999;
   font-size: 8px;
+  padding-top: 8px;
   padding-bottom: 8px;
-  margin-top: 8px;
+  overflow-y: auto;
 }
 
 .footer .el-link {
@@ -54,12 +57,12 @@ body {
 /* 投票部分-主体 */
 
 .el-main {
-  
+  height: calc(100vh - var(--header-height) - var(--footer-height) - 16px);
 }
 
 
 .vote-list {
-  height: 80vh;
+  
 }
 
 .vote-item {
@@ -142,6 +145,7 @@ body {
   margin-top: 6px;
   justify-content: space-between;
 }
+
 .tags {
   display: flex;
   align-items: center;
@@ -170,20 +174,10 @@ body {
   color: #999;
 }
 
-/* 语言切换按钮 */
-.lang-toggle {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  padding: 10px;
-  font-size: 18px;
-  background-color: #fff;
-  border-radius: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-}
-
-.lang-toggle:hover {
-  transform: scale(1.1);
+.contributors {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-flow:row wrap;
+  max-width: 80vw;
 }

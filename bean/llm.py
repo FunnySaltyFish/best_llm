@@ -21,6 +21,7 @@ class LLM(BaseModel):
     # 图标的 url 或 base64 编码
     icon: str = ""
     # 发布日期，如果尚未发布，则为 None
+    # 格式 2021-01-01T00:00:00Z
     publish_time: Optional[datetime] = None
 
     vote_count: int = 0

@@ -59,15 +59,15 @@ const app = Vue.createApp({
 
         <div class="product-info">
             <el-avatar shape="circle" :size="24" :src="item.icon" fit="cover" />
-            <div class="name">{{item.name}}</div>
-            <div class="vendor">
-            {{item.vendor}}<span class="corner">{{item.corner}}</span>
+            <el-link :underline="false" :href="item.url" class="name" target="_blank">{{item.name}}</el-link>
+            <div class="vendor">{{item.vendor}}
+              <span class="corner">{{item.corner}}</span>
             </div>
             <div class="time">{{item.publish_time}}</div>
         </div>
         <!-- 产品简介 -->
         <div class="product-desc">
-          <div class="intro">{{item.intro}}</div>
+          <div class="intro" v-html="item.intro"></div>
           <!-- 投票数，在整个卡片居中右侧 -->
           <div class="vote-count">{{item.vote_count}}</div>
         </div>
@@ -121,7 +121,7 @@ const app = Vue.createApp({
             </div>
           </el-header>
         </el-affix>
-        <el-main style="height: 100%;">
+        <el-main>
           <!-- 投票项列表 -->
           <div class="vote-list" v-infinite-scroll="loadNewPage" infinite-scroll-immediate="false">
               <vote-item v-for="item in items" :key="item.id" :item="item" :voteNum="voteNum" @vote="vote" @revokeVote="revokeVote" />
@@ -199,7 +199,6 @@ const app = Vue.createApp({
 
   },
   async mounted() {
-    console.log('mounted');
     this.contributors = await API.getContributors();
 
     let uid = localStorage.getItem('uid');
@@ -217,7 +216,6 @@ const app = Vue.createApp({
 
     const voteNum = (await API.getUserVoteNum());
     this.voteNum = voteNum;
-    console.log('voteNum', this.voteNum);
     this.loadNewPage();
   },
 });
