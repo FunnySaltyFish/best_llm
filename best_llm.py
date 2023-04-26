@@ -11,7 +11,7 @@ from bean.contributor import Contributor
 from config import *
 from mongo_db import appDB
 from utils.user_utils import find_or_create_user
-import datetime
+from typing import List, Optional
 
 DEFAULT_VOTE_NUM = 3
 
@@ -64,7 +64,7 @@ async def get_llm_list(
     sort=[("vote_count", -1)], 
     client_ip: str = Depends(get_client_ip),
     uid: str = "",
-) -> list[LLM]:
+) -> List[LLM]:
     print("client_ip: ", client_ip)
     user = find_or_create_user(uid)
     llms = appDB.query_paged(appDB.col_llms, page, size, sort)
