@@ -5,3 +5,4 @@ load_dotenv(find_dotenv(), override=True)
 
 # MongoDB 配置
 MONGO_URI = os.getenv('MONGO_URI', f"mongodb://localhost:27017")
+DEBUG = os.getenv('DEBUG', "false") == "true"

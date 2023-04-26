@@ -71,8 +71,6 @@ async def get_llm_list(
     for llm in llms:
         # 通过 user.voted_llms 判断当前用户是否已经投过票
         llm['voted'] = llm["id"] in user.get('voted_llms', [])
-        # 显示 年-月-日
-        t: datetime.datetime = llm.get("publish_time")
     return llms
 
 
@@ -102,5 +100,5 @@ async def revoke_vote(llm_id: int, client_ip: str = Depends(get_client_ip), uid:
 
 
 if __name__ == '__main__':
-    uvicorn.run('best_llm:app', host='127.0.0.1', port=8000, reload=True,
+    uvicorn.run('best_llm:app', host='127.0.0.1', port=8000, reload=DEBUG,
                 reload_excludes=[".history/**", "static/", "templates/"])
