@@ -20,7 +20,7 @@ templates = Jinja2Templates(directory="templates")
 # CORS 中间件配置
 origins = [
     'http://localhost',
-    'http://localhost:8080',
+    'http://localhost:8010',
     'http://localhost:8000'
 ]
 
@@ -46,7 +46,7 @@ async def read_root(request: Request):
     
 
 @app.get("/api/contributors")
-async def get_contributors() -> list[Contributor]:
+async def get_contributors() -> List[Contributor]:
     return appDB.query_all(appDB.col_contributors)
 
 @app.post("/api/users/vote_num")
