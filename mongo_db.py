@@ -1,6 +1,7 @@
 import pymongo
 from pymongo.collection import Collection
 from config import MONGO_URI
+from typing import Dict
 
 class DB():
     def __init__(self) -> None:
@@ -21,16 +22,16 @@ class DB():
         else:
             return default
 
-    def remove_id(self, data: dict):
+    def remove_id(self, data: Dict):
         data.pop("_id")
 
-    def query_paged(self, col: Collection, page: int = 0, size: int = 20, sort: list = None, filter: dict = None):
+    def query_paged(self, col: Collection, page: int = 0, size: int = 20, sort: list = None, filter: Dict = None):
         """分页查询，page从0开始"""
         size = int(size)
         page = int(page)
         return self.query_all(col, filter=filter, skip=page*size, limit=size, sort=sort)
 
-    def query_one(self, col: Collection, filter: dict = {}, projection: dict = {"_id": False}, sort: list = None, **args) -> dict:
+    def query_one(self, col: Collection, filter: Dict = {}, projection: Dict = {"_id": False}, sort: list = None, **args) -> Dict:
         if isinstance(sort, str):
             # 传入的sort格式为
             # [('_id', -1)]
@@ -40,7 +41,7 @@ class DB():
                 sort = None
         return col.find_one(filter=filter, projection=projection, sort=sort, **args)
 
-    def query_all(self, col: Collection, filter: dict = {}, projection: dict = {"_id": False}, sort: list = None, **args) -> list:
+    def query_all(self, col: Collection, filter: Dict = {}, projection: Dict = {"_id": False}, sort: list = None, **args) -> list:
         if isinstance(sort, str):
             # 传入的sort格式为
             # [('_id', -1)]
