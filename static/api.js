@@ -7,8 +7,13 @@ const http = axios.create({
     },
 });
 
+let loadingService;
+
 http.interceptors.request.use(
     config => {
+        loadingService = app.config.globalProperties.$loading({
+            lock: true,
+        });
         const uid = localStorage.getItem('uid');
         if (uid) {
             config.headers['uid'] = uid;
@@ -22,10 +27,18 @@ http.interceptors.request.use(
 
 http.interceptors.response.use(
     response => {
+        setTimeout(() => {
+            loadingService.close();
+        }, 300);
         return response;
     },
     error => {
+        console.log(error);
         console.log("request with url " + error.config.url + " failed, status code = " + error.response.status, "error = ", error)
+        setTimeout(() => {
+            loadingService.close();
+        }, 300);
+        
         return Promise.reject(
             error.response.data.detail || error.message || '请求失败',
         );

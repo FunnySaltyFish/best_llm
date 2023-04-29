@@ -225,3 +225,5 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
 }
 app.use(ElementPlus).use(i18n)
   .mount('#app');
+
+window.app = app;
