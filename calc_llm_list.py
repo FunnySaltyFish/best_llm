@@ -101,11 +101,15 @@ def parse_line_to_json(i: int, line: str):
 #     data = json.loads(resp.text)
 #     return data["created_at"]
 
-# if __name__ == "__main__":
-#     import json
-#     llms = json.load(open("llms.json", encoding="utf-8"))
-#     for llm in llms:
-#         if llm["url"].startswith("https://github.com"):
-#             if "OpenSource" not in llm["tags"]:
-#                 llm["tags"].append("OpenSource")
-#     json.dump(llms, open("llms.json", "w", encoding="utf-8"), ensure_ascii=False, indent=2)
+if __name__ == "__main__":
+    import json
+    import re
+    PATTERN_MD_LINK = re.compile(r"\[(.*?)\]\((.*?)\)")
+    llms = json.load(open("llms.json", encoding="utf-8"))
+    for llm in llms:
+        intro = llm["intro"]
+        # 把 [name](url) 替换成 <a href="url">name</a>
+        intro = PATTERN_MD_LINK.sub(r'<a href="\2">\1</a>', intro)
+        llm["intro"] = intro
+        
+    json.dump(llms, open("llms.json", "w", encoding="utf-8"), ensure_ascii=False, indent=2)
