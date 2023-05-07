@@ -24,6 +24,31 @@
 <img src="screenshot.png" alt="screenshot" style="zoom: 25%;" />
 </p>
 
+## Depoly
+1. Clone the repo
+```bash
+git clone https://github.com/FunnySaltyFish/best_llm
+```
+
+2. Install dependencies
+```bash
+cd best_llm
+pip install -r requirements.txt
+```
+
+3. Edit `.env` file
+```bash
+# MongoDB URI, you might need to install mongo first
+MONGO_URI = "mongodb://localhost:27017/"
+# Whether to enable debug mode, by default it's false
+DEBUG = "true"
+```
+
+4. Run the server
+```bash
+# the python version should be >= 3.8
+python best_llm.py
+```
 
 ## Contribute
 **THIS PROJECT IS UNDER CONSTRUCTION, CONTRIBUTION IS HIGHLY WELCOME.**
