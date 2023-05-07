@@ -19,6 +19,11 @@
 <img src="logo.png" alt="logo" style="zoom: 25%;" />
 </p>
 
+## Screenshots
+<p align="center">
+<img src="screenshot.png" alt="screenshot" style="zoom: 25%;" />
+</p>
+
 
 ## Contribute
 **THIS PROJECT IS UNDER CONSTRUCTION, CONTRIBUTION IS HIGHLY WELCOME.**
